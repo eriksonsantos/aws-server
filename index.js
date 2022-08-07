@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const register = require('./routes/register')
+const login = require('./routes/login')
 const {database} = require('./controllers/register')
 
 require('dotenv').config()
@@ -21,7 +22,7 @@ database.createDatabase()
         database.createTable()
 })
 
-app.use('/', register)
+app.use('/', login,register)
 
 app.get('/hello', (req, res) => {
     res.json({
