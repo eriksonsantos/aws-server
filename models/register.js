@@ -43,7 +43,16 @@ class Registers {
     async getValues(query){
         try {
             var result = await this.dataset.all(query)
-            console.log(result)
+             console.log(result)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async getCountRegister(query){
+        try {
+            var result = await this.dataset.all(query)
+             return result
         } catch (error) {
             console.log(error)
         }

@@ -1,14 +1,9 @@
 
 exports.runValidation = (req, res, next) => {
 
-    const {name, email, password } = req.body
+    const { email, password } = req.body
 
-    if (name == null || name.length <= 0) {
-        res.status(402).json({
-            error: "The name don't can are null or empty"
-        })
-    }
-    else if (email == null || email.length <= 0) {
+    if (email == null || email.length <= 0) {
         res.status(402).json({
             error: "The email don't can are null or empty"
         })
@@ -32,12 +27,9 @@ exports.runValidation = (req, res, next) => {
 
 }
 
-exports.acceptRegisterData = (name, email, password) => {
+exports.acceptLoginData = (email, password) => {
 
-    if (name == null || name.length <= 0) {
-        return false
-    }
-    else if (email == null || email.length <= 0) {
+    if (email == null || email.length <= 0) {
         return false
     }
     else if (password == null || password.length <= 0) {
